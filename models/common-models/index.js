@@ -1,0 +1,15 @@
+module.exports = {
+  ...require("./education-model"),
+  ...require("./course-model"),
+  ...require("./jobApplication-model"),
+  ...require("./noticePeriod"),
+  ...require("./role-model"),
+  ...require("./skill-model"),
+  ...require("./searchAppearanceHistory-model"),
+  ...require("./sms-student-model"),
+  ...require("./viewedProfileHistory-model"),
+  ...require("./specialization-model"),
+  ...require("./speakingLanguage"),
+  ...require("./plan-model"),
+  ...require("./downloadedResumeHistory-model"),
+};
