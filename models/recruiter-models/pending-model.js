@@ -40,4 +40,4 @@ const PendingRecruiterModel = myDB.model("pending-recruiter", schema);
 // Ensure TTL index is created
 schema.index({ deleteAt: 1 }, { expireAfterSeconds: 0 });
 
-module.exports = { PendingRecruiterModel };
+module.exports = PendingRecruiterModel;

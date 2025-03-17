@@ -124,4 +124,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 // Create the model
 const PaymentHistoryModel = myDB.model("payment-history", paymentHistorySchema);
 
-module.exports = { PaymentHistoryModel };
+module.exports = PaymentHistoryModel;

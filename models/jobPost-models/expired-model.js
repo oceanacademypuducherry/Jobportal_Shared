@@ -42,4 +42,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 
 const ExpiredJobPostModel = myDB.model("expired-jobPost", schema);
 
-module.exports = { ExpiredJobPostModel };
+module.exports = ExpiredJobPostModel;

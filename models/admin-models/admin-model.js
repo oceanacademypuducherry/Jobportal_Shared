@@ -60,4 +60,4 @@ const myDB = mongoose.connection.useDb(
 // Model definition
 const AdminModel = myDB.model("Admin", schema);
 
-module.exports = { AdminModel };
+module.exports = AdminModel;

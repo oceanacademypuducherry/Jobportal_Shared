@@ -22,4 +22,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 // Create the model
 const CandidateRequestModel = myDB.model("candidate-request", schema);
 
-module.exports = { CandidateRequestModel };
+module.exports = CandidateRequestModel;

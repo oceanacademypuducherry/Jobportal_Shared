@@ -1,6 +1,6 @@
 module.exports = {
-  ...require("./candidate-model"),
-  ...require("./request-model"),
-  ...require("./savedJob-model"),
-  ...require("./token-model"),
+  CandidateModel: require("./candidate-model"),
+  CandidateRequestModel: require("./request-model"),
+  CandidateSavedJobModel: require("./savedJob-model"),
+  CandidateToken: require("./token-model"),
 };

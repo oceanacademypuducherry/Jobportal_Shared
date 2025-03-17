@@ -1,10 +1,10 @@
 module.exports = {
-  ...require("./active-model"),
-  ...require("./draft-model"),
-  ...require("./expired-model"),
-  ...require("./invitation-model"),
-  ...require("./onHold-model"),
-  ...require("./pending-model"),
-  ...require("./rejected-model"),
-  ...require("./verification-model"),
+  ActiveJobPostModel: require("./active-model"),
+  DraftJobPostModel: require("./draft-model"),
+  ExpiredJobPostModel: require("./expired-model"),
+  JobInvitationModel: require("./invitation-model"),
+  OnHoldJobPostModel: require("./onHold-model"),
+  PendingJobPostModel: require("./pending-model"),
+  RejectedJobPostModel: require("./rejected-model"),
+  VerificationJobPostModel: require("./verification-model"),
 };

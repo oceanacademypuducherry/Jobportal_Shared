@@ -371,4 +371,4 @@ schema.index({ profilePercentage: 1 });
 // Create the model
 const CandidateModel = myDB.model("candidate", schema);
 
-module.exports = { CandidateModel };
+module.exports = CandidateModel;

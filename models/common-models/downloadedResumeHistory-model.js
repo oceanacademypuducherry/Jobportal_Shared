@@ -50,4 +50,4 @@ const DownloadedResumeHistoryModel = myDB.model(
   schema
 );
 
-module.exports = { DownloadedResumeHistoryModel };
+module.exports = DownloadedResumeHistoryModel;

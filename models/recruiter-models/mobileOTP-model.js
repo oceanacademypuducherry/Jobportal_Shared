@@ -84,4 +84,4 @@ schema.index({ recruiterId: 1 });
 schema.index({ mobileNumber: 1 });
 schema.index({ countryCode: 1 });
 
-module.exports = { RecruiterMobileOTPModel };
+module.exports = RecruiterMobileOTPModel;

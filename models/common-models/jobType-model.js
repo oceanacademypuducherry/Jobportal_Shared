@@ -18,4 +18,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 // Create the model
 const JobTypeModel = myDB.model("jobType", schema);
 
-module.exports = { JobTypeModel };
+module.exports = JobTypeModel;

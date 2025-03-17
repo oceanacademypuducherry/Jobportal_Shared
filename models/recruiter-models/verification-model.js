@@ -59,4 +59,4 @@ const schema = new Schema(
 const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 const VerificationRecruiterModel = myDB.model("verification-recruiter", schema);
 
-module.exports = { VerificationRecruiterModel };
+module.exports = VerificationRecruiterModel;

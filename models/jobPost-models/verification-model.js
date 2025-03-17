@@ -46,4 +46,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 
 const VerificationJobPostModel = myDB.model("verification-jobPost", schema);
 
-module.exports = { VerificationJobPostModel };
+module.exports = VerificationJobPostModel;

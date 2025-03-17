@@ -1,4 +1,4 @@
 module.exports = {
-  ...require("./active-model"),
-  ...require("./verification-model"),
+  ActiveOrganizationModel: require("./active-model"),
+  OrganizationVerificationModel: require("./verification-model"),
 };

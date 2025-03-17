@@ -67,4 +67,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 
 const ActiveJobPostModel = myDB.model("active-jobPost", schema);
 
-module.exports = { ActiveJobPostModel };
+module.exports = ActiveJobPostModel;

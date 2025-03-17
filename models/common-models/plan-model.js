@@ -140,4 +140,4 @@ const planSchema = new mongoose.Schema({
 const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 const PlanModel = myDB.model("Plan", planSchema);
 
-module.exports = { PlanModel };
+module.exports = PlanModel;

@@ -32,4 +32,4 @@ const SearchAppearanceHistoryModel = myDB.model(
   searchAppearanceHistorySchema
 );
 
-module.exports = { SearchAppearanceHistoryModel };
+module.exports = SearchAppearanceHistoryModel;

@@ -10,4 +10,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 // Create the model
 const SpeakingLanguageModel = myDB.model("speaking-language", schema);
 
-module.exports = { SpeakingLanguageModel };
+module.exports = SpeakingLanguageModel;

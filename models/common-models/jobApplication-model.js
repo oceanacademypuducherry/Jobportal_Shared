@@ -53,4 +53,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 // Create the model
 const JobApplicationModel = myDB.model("job-application", schema);
 
-module.exports = { JobApplicationModel };
+module.exports = JobApplicationModel;

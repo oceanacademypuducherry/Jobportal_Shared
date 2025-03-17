@@ -107,4 +107,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 // Create the model
 const ActiveOrganizationModel = myDB.model("active-organization", schema);
 
-module.exports = { ActiveOrganizationModel };
+module.exports = ActiveOrganizationModel;

@@ -1,4 +1,4 @@
 module.exports = {
-  ...require("./admin-model"),
-  ...require("./token-model"),
+  AdminModel: require("./admin-model"),
+  AdminTokenModel: require("./token-model"),
 };

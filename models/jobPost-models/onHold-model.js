@@ -54,4 +54,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 
 const OnHoldJobPostModel = myDB.model("onHold-jobPost", schema);
 
-module.exports = { OnHoldJobPostModel };
+module.exports = OnHoldJobPostModel;

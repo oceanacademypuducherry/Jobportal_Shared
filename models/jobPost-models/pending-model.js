@@ -41,4 +41,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 
 const PendingJobPostModel = myDB.model("pending-jobPost", schema);
 
-module.exports = { PendingJobPostModel };
+module.exports = PendingJobPostModel;

@@ -38,4 +38,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 
 const DraftJobPostModel = myDB.model("draft-jobPost", schema);
 
-module.exports = { DraftJobPostModel };
+module.exports = DraftJobPostModel;

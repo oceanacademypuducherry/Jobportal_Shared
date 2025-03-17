@@ -1,10 +1,10 @@
 module.exports = {
-  ...require("./active-model"),
-  ...require("./pending-model"),
-  ...require("./basicDetail-model"),
-  ...require("./token-model"),
-  ...require("./counter-model"),
-  ...require("./request-model"),
-  ...require("./verification-model"),
-  ...require("./mobileOTP-model"),
+  ActiveRecruiterModel: require("./active-model"),
+  PendingRecruiterModel: require("./pending-model"),
+  RecruiterBasicDetailModel: require("./basicDetail-model"),
+  RecruiterTokenModel: require("./token-model"),
+  CounterModel: require("./counter-model"),
+  RequestRecruiterModel: require("./request-model"),
+  VerificationRecruiterModel: require("./verification-model"),
+  RecruiterMobileOTPModel: require("./mobileOTP-model"),
 };

@@ -41,4 +41,4 @@ const myDB = mongoose.connection.useDb("OA_SMS");
 
 const AdmissionModel = myDB.model("admission", admissionSchema);
 
-module.exports = { AdmissionModel };
+module.exports = AdmissionModel;

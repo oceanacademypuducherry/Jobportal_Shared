@@ -40,4 +40,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 // Create the model
 const ViewedProfileHistory = myDB.model("viewed-profile-history", schema);
 
-module.exports = { ViewedProfileHistory };
+module.exports = ViewedProfileHistory;

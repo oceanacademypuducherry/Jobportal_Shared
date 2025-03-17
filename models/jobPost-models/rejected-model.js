@@ -47,4 +47,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 
 const RejectedJobPostModel = myDB.model("rejected-jobPost", schema);
 
-module.exports = { RejectedJobPostModel };
+module.exports = RejectedJobPostModel;

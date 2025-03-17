@@ -16,4 +16,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 
 const AdminTokenModel = myDB.model("admin-token", schema);
 
-module.exports = { AdminTokenModel };
+module.exports = AdminTokenModel;

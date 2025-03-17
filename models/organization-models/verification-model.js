@@ -48,4 +48,4 @@ const OrganizationVerificationModel = myDB.model(
   schema
 );
 
-module.exports = { OrganizationVerificationModel };
+module.exports = OrganizationVerificationModel;

@@ -41,4 +41,4 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 // Create the model
 const ActiveRecruiterModel = myDB.model("active-recruiter", schema);
 
-module.exports = { ActiveRecruiterModel };
+module.exports = ActiveRecruiterModel;
