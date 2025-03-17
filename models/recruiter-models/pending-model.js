@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 const {
   Schema,
   Types: { ObjectId },
@@ -32,7 +33,7 @@ const schema = new mongoose.Schema(
   { timestamps: { createdAt: true, updatedAt: true } }
 );
 
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 
 // Create the model
 const PendingRecruiterModel = myDB.model("pending-recruiter", schema);

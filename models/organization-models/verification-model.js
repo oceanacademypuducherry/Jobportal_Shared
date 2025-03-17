@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { addressSchema } = require("../../scheme");
+const { DATABASE_NAME } = require("../../constants");
 
 const { ObjectId } = mongoose.Schema.Types;
 
@@ -40,7 +41,7 @@ const schema = new mongoose.Schema(
   { timestamps: { createdAt: true, updatedAt: true } }
 );
 
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 
 // Create the model
 const OrganizationVerificationModel = myDB.model(

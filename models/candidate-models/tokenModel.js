@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 
 const schema = new mongoose.Schema(
   {
@@ -14,6 +15,6 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 
 schema.index({ candidateId: 1, sessionId: 1 });
 
-const CandidateToken = myDB.model("candidate-token", schema);
+const CandidateToken = myDB.model(DATABASE_NAME, schema);
 
 module.exports = { CandidateToken };

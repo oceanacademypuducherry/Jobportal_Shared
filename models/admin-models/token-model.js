@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 
 const schema = new mongoose.Schema({
   adminId: {
@@ -12,7 +13,7 @@ const schema = new mongoose.Schema({
   },
 });
 
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 
 const AdminTokenModel = myDB.model("admin-token", schema);
 

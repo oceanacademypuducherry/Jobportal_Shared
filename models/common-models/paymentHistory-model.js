@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 
 const { ObjectId } = mongoose.Types;
 
@@ -119,7 +120,7 @@ paymentHistorySchema.index({ recruiterId: 1 });
 paymentHistorySchema.index({ organizationId: 1 });
 
 // Connect to the specific database
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 
 // Create the model
 const PaymentHistoryModel = myDB.model("payment-history", paymentHistorySchema);

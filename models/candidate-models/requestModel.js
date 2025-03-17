@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 
 // Define the schema
 const schema = new mongoose.Schema(
@@ -17,7 +18,7 @@ const schema = new mongoose.Schema(
 // Create the TTL index
 schema.index({ expireAt: 1 }, { expireAfterSeconds: 0 });
 
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 
 // Create the model
 const CandidateRequestModel = myDB.model("candidate-request", schema);

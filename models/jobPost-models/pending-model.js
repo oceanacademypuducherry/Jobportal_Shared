@@ -5,6 +5,7 @@ const {
   pendingJobPostStep3Schema,
   pendingJobPostStep4Schema,
 } = require("../../scheme");
+const { DATABASE_NAME } = require("../../constants");
 const { ObjectId } = mongoose.Schema.Types;
 
 const schema = new mongoose.Schema(
@@ -37,7 +38,7 @@ const schema = new mongoose.Schema(
 );
 
 // Create the model
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 
 const PendingJobPostModel = myDB.model("pending-jobPost", schema);
 

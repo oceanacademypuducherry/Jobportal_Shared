@@ -4,6 +4,7 @@ const {
   pendingJobPostStep1Schema,
   pendingJobPostStep2Schema,
 } = require("../../scheme");
+const { DATABASE_NAME } = require("../../constants");
 
 // Define the schema
 const schema = new mongoose.Schema(
@@ -34,7 +35,7 @@ const schema = new mongoose.Schema(
 );
 
 // Create the model
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 
 const DraftJobPostModel = myDB.model("draft-jobPost", schema);
 

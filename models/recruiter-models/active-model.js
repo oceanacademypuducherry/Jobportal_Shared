@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 
 const { ObjectId } = mongoose.Schema.Types;
 
@@ -36,7 +37,7 @@ const schema = new mongoose.Schema(
 // Indexing for performance
 schema.index({ organizationId: 1 });
 
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 
 // Create the model
 const ActiveRecruiterModel = myDB.model("active-recruiter", schema);

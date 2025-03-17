@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { isIntegerValidator } = require("../../utils");
+const { DATABASE_NAME } = require("../../constants");
 
 const planSchema = new mongoose.Schema({
   planName: {
@@ -137,7 +138,7 @@ const planSchema = new mongoose.Schema({
   },
 });
 
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 const PlanModel = myDB.model("Plan", planSchema);
 
 module.exports = PlanModel;

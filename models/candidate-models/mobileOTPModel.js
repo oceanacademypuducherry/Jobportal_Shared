@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 const {
   Schema,
   Types: { ObjectId },
@@ -68,7 +69,7 @@ schema.index({ mobileNumber: 1 });
 schema.index({ countryCode: 1 });
 
 const CandidateMobileOTPModel = mongoose.connection
-  .useDb("OA_Job_Portal_API")
+  .useDb(DATABASE_NAME)
   .model("candidate-mobile-otp", schema);
 
-module.exports =  CandidateMobileOTPModel ;
+module.exports = CandidateMobileOTPModel;

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 const Schema = mongoose.Schema;
 
 const SearchAppearanceSchema = new Schema(
@@ -39,7 +40,7 @@ SearchAppearanceSchema.index(
 // Create a TTL index on the expiresAt field
 SearchAppearanceSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 
 const SearchAppearanceModel = myDB.model(
   "search-appearance-history",

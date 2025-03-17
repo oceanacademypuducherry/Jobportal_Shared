@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 
 const { Schema } = mongoose;
 
@@ -56,7 +57,7 @@ const schema = new Schema(
 
 
 // Create the model
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 const VerificationRecruiterModel = myDB.model("verification-recruiter", schema);
 
 module.exports = VerificationRecruiterModel;

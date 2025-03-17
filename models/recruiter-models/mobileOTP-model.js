@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 const {
   Schema,
   Types: { ObjectId },
@@ -73,7 +74,7 @@ const schema = new Schema(
 );
 
 // Create the model
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 const RecruiterMobileOTPModel = myDB.model("recruiter-mobile-otp", schema);
 
 // Ensure deleteAt index is created (for document expiry)

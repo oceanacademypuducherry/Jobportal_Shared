@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DATABASE_NAME } = require("../../constants");
 
 const { ObjectId } = mongoose.Types;
 
@@ -7,7 +8,7 @@ const schema = new mongoose.Schema({
   recruiterId: { type: ObjectId, required: true },
 });
 
-const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
+const myDB = mongoose.connection.useDb(DATABASE_NAME);
 
 const RecruiterTokenModel = myDB.model("recruiter-token", schema);
 
