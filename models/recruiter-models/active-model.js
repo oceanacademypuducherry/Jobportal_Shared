@@ -12,7 +12,9 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
       match: /^\S+@\S+\.\S+$/,
-      unique: true, // Ensure email is unique
+      unique: true, // Unique index (no need for manual index)
+      lowercase: true, // Ensure case-insensitive uniqueness
+      trim: true, // Remove accidental spaces
     },
     countryCode: { type: String, required: true, enum: ["+91"] },
     mobileNumber: {
@@ -20,13 +22,12 @@ const schema = new mongoose.Schema(
       required: true,
       minlength: 10,
       maxlength: 10,
-      unique: true, // Ensure mobileNumber is unique
+      unique: true,  // Unique index (no need for manual index)
     },
     password: { type: String, required: true },
     organizationId: {
       type: ObjectId,
       required: true,
-      // ref: "Organization"
     },
   },
   { timestamps: { createdAt: true, updatedAt: true } }
@@ -34,8 +35,6 @@ const schema = new mongoose.Schema(
 
 // Indexing for performance
 schema.index({ organizationId: 1 });
-schema.index({ email: 1 }); // Index on email
-schema.index({ mobileNumber: 1 }); // Index on mobileNumber
 
 const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 

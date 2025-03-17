@@ -101,7 +101,6 @@ const schema = new mongoose.Schema(
 // Indexing for better performance
 schema.index({ recruiterId: 1 });
 schema.index({ normalizedOrganizationName: 1 });
-schema.index({ gstNumber: 1 });
 
 const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 

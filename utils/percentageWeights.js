@@ -3,9 +3,10 @@ const percentageWeights = {
   resume: 15,
   skillIds: 10,
   roleIds: 10,
+  linkedIn: 3,
   workStatus: 4,
   noticePeriod: 4,
-  profileSummary: 8,
+  profileSummary: 5,
   avatar: 5,
   fullName: 5,
   email: 5,
@@ -38,6 +39,7 @@ const calculateScore = (candidate) => {
     resume,
     skillIds,
     roleIds,
+    linkedIn,
     workStatus,
     noticePeriod,
     profileSummary,
@@ -62,6 +64,7 @@ const calculateScore = (candidate) => {
     totalScore += percentageWeights.skillIds;
   if (Array.isArray(roleIds) && roleIds.length)
     totalScore += percentageWeights.roleIds;
+  if (linkedIn) totalScore += percentageWeights.linkedIn;
   if (workStatus) totalScore += percentageWeights.workStatus;
   if (noticePeriod) totalScore += percentageWeights.noticePeriod;
   if (profileSummary) totalScore += percentageWeights.profileSummary;
@@ -84,6 +87,13 @@ const calculateScore = (candidate) => {
   ) {
     totalScore += percentageWeights.educations; // Add 5% for educations if exists
   }
+  // if (
+  //   Array.isArray(schools) &&
+  //   schools.length &&
+  //   !(Array.isArray(educations) && educations.length)
+  // ) {
+  //   totalScore += percentageWeights.schools; // Add 5% for schools only if educations don't exist
+  // }
 
   // Add score for projects if they exist
   if (Array.isArray(projects) && projects.length) {

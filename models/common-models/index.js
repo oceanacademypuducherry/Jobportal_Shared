@@ -2,6 +2,8 @@ module.exports = {
   ...require("./education-model"),
   ...require("./course-model"),
   ...require("./jobApplication-model"),
+  ...require("./jobApproach-model"),
+  ...require("./jobType-model"),
   ...require("./noticePeriod"),
   ...require("./role-model"),
   ...require("./skill-model"),
@@ -10,6 +12,8 @@ module.exports = {
   ...require("./viewedProfileHistory-model"),
   ...require("./specialization-model"),
   ...require("./speakingLanguage"),
+  ...require("./jobOffer-model"),
   ...require("./plan-model"),
   ...require("./downloadedResumeHistory-model"),
+  ...require("./paymentHistory-model"),
 };

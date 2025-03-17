@@ -30,15 +30,30 @@ const schema = new mongoose.Schema(
         message: "Invalid Recruiter ID format",
       },
     },
-    planId: {
+    // planId: {
+    //   type: ObjectId,
+    //   required: [true, "Plan ID is required"],
+    //   ref: "plan",
+    //   validate: {
+    //     validator: function (v) {
+    //       return mongoose.Types.ObjectId.isValid(v);
+    //     },
+    //     message: "Invalid Plan ID format",
+    //   },
+    // },
+    jobId: {
+      type: String,
+      required: [true, "Job ID is required"],
+    },
+    paymentHistoryId: {
       type: ObjectId,
-      required: [true, "Plan ID is required"],
-      ref: "plan",
+      required: [true, "Payment History ID is required"],
+      ref: "paymentHistory",
       validate: {
         validator: function (v) {
           return mongoose.Types.ObjectId.isValid(v);
         },
-        message: "Invalid Plan ID format",
+        message: "Invalid Payment History ID format",
       },
     },
     ...pendingJobPostStep1Schema.obj,
