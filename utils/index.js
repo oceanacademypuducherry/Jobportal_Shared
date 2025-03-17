@@ -1,4 +1,5 @@
 module.exports = {
+  ...require("./env-utils"),
   ...require("./percentageWeights"),
   ...require("./sendEmail-utils"),
   ...require("./validate-utils"),
