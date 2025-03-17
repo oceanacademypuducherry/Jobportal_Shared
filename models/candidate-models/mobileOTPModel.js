@@ -71,4 +71,4 @@ const CandidateMobileOTPModel = mongoose.connection
   .useDb("OA_Job_Portal_API")
   .model("candidate-mobile-otp", schema);
 
-module.exports = { CandidateMobileOTPModel };
+module.exports =  CandidateMobileOTPModel ;

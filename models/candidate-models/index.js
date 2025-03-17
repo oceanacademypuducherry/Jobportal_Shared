@@ -1,6 +1,8 @@
 module.exports = {
-  CandidateModel: require("./candidate-model"),
-  CandidateRequestModel: require("./request-model"),
-  CandidateSavedJobModel: require("./savedJob-model"),
-  CandidateToken: require("./token-model"),
+  CandidateModel: require("./candidateModel"),
+  CandidateMobileOTPModel: require("./mobileOTPModel"),
+  CandidateOTPModel: require("./otpModel"),
+  CandidateRequestModel: require("./requestModel"),
+  CandidateSavedJobModel: require("./savedJobModel"),
+  SearchAppearanceModel: require("./searchAppearanceModel"),
 };
