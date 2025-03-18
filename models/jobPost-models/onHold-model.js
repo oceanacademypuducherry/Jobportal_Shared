@@ -12,7 +12,7 @@ const {
   pendingJobPostStep4Schema,
 } = require("../../scheme/pendingJobPostStep4-scheme");
 const { validateReason } = require("../../utils");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 
 // Define the schema
 const schema = new mongoose.Schema(
@@ -51,7 +51,7 @@ const schema = new mongoose.Schema(
 );
 
 // Create the model
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 
 const OnHoldJobPostModel = myDB.model("onHold-jobPost", schema);
 

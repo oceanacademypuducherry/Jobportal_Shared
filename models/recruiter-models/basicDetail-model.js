@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const { isMobilePhone } = require("validator");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 const {
   Schema,
   Types: { ObjectId },
@@ -107,7 +107,7 @@ schema.index({ deleteAt: 1 }, { expireAfterSeconds: 0 });
 schema.index({ recruiterId: 1 });
 
 // Create the model
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 const RecruiterBasicDetailModel = myDB.model("recruiter-basic-detail", schema);
 
 module.exports = { RecruiterBasicDetailModel };

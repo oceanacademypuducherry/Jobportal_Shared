@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 const { ObjectId } = mongoose.Types;
 
 // Define the schema for Search Appearance History
@@ -27,7 +27,7 @@ searchAppearanceHistorySchema.index({ recruiterId: 1 });
 searchAppearanceHistorySchema.index({ searchDate: -1 });
 
 // Create the model
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 const SearchAppearanceHistoryModel = myDB.model(
   "search-appearance-history",
   searchAppearanceHistorySchema

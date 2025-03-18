@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 
 const counterSchema = new mongoose.Schema({
   _id: { type: String, required: true },
@@ -7,7 +7,7 @@ const counterSchema = new mongoose.Schema({
 });
 
 // Create the model
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 const CounterModel = myDB.model("counter", counterSchema);
 
 module.exports = { CounterModel };

@@ -6,7 +6,7 @@ const {
   pendingJobPostStep4Schema,
 } = require("../../scheme");
 const { validateReason } = require("../../utils");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 const { ObjectId } = mongoose.Schema.Types;
 
 const schema = new mongoose.Schema(
@@ -44,7 +44,7 @@ const schema = new mongoose.Schema(
 );
 
 // Create the model
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 
 const RejectedJobPostModel = myDB.model("rejected-jobPost", schema);
 

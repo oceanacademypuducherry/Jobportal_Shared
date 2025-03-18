@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 
 const { ObjectId } = mongoose.Types;
 
@@ -43,7 +43,7 @@ const schema = new mongoose.Schema(
 // Define the TTL index for the createdAt field
 schema.index({ createdAt: 1 }, { expireAfterSeconds: 2592000 }); // 30 days in seconds
 
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 
 // Create the model
 const DownloadedResumeHistoryModel = myDB.model(

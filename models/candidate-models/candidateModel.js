@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { percentageWeights } = require("../../utils");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 const { ObjectId } = mongoose.Types;
 
 // Enum Definitions
@@ -364,7 +364,7 @@ const schema = new mongoose.Schema(
   { timestamps: { createdAt: true, updatedAt: true } }
 );
 
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 
 schema.index({ isActive: 1 });
 schema.index({ profilePercentage: 1 });

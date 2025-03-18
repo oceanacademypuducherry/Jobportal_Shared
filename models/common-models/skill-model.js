@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 
 // Define the schema
 const schema = new mongoose.Schema(
@@ -13,7 +13,7 @@ const schema = new mongoose.Schema(
   { timestamps: { createdAt: true, updatedAt: true } }
 );
 
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 
 // Create the model
 const SkillModel = myDB.model("skill", schema);

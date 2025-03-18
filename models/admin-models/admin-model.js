@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { hashPassword } = require("../../utils");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 
 // Define the schema with validation and best practices
 const schema = new mongoose.Schema(
@@ -54,7 +54,7 @@ schema.pre("save", async function (next) {
 });
 
 // Using a separate database instance
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 
 // Model definition
 const AdminModel = myDB.model("Admin", schema);

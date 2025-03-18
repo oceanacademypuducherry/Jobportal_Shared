@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 
 // Define the schema
 const schema = new mongoose.Schema(
@@ -67,7 +67,7 @@ const schema = new mongoose.Schema(
 schema.index({ mobileNumber: 1, countryCode: 1 }); // Compound index on mobileNumber and countryCode
 schema.index({ deleteAt: 1 }, { expireAfterSeconds: 0 }); // TTL index for automatic deletion
 
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 
 // Create the model
 const RequestRecruiterModel = myDB.model("request-recruiter", schema);

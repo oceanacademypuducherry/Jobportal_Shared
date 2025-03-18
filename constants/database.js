@@ -1,6 +1,6 @@
-const { isProduction } = require("../utils");
+const { isProduction } = require("../utils/env-utils");
 
 module.exports = {
     // Database constants
-    DATABASE_NAME: isProduction() ? "OA_Job_Portal_API" : "OA_Job_Portal_API_TEST",
+    getDatabaseName: () => isProduction() ? "OA_Job_Portal_API" : "OA_Job_Portal_TEST_API",
 };

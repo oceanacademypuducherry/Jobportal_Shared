@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 const {
   Schema,
   Types: { ObjectId },
@@ -69,7 +69,7 @@ const schema = new Schema(
 schema.index({ deleteAt: 1 }, { expireAfterSeconds: 0 });
 
 const CandidateOTPModel = mongoose.connection
-  .useDb(DATABASE_NAME)
+  .useDb(getDatabaseName())
   .model("recruiter-otp", schema);
 
 module.exports = CandidateOTPModel;

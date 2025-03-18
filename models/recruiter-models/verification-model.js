@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { DATABASE_NAME } = require("../../constants");
+const { getDatabaseName } = require("../../constants");
 
 const { Schema } = mongoose;
 
@@ -57,7 +57,7 @@ const schema = new Schema(
 
 
 // Create the model
-const myDB = mongoose.connection.useDb(DATABASE_NAME);
+const myDB = mongoose.connection.useDb(getDatabaseName());
 const VerificationRecruiterModel = myDB.model("verification-recruiter", schema);
 
 module.exports = VerificationRecruiterModel;
