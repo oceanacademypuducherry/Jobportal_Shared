@@ -3,7 +3,7 @@ const { ObjectId } = mongoose.Types;
 const {
   pendingJobPostStep1Schema,
   pendingJobPostStep2Schema,
-} = require("../../scheme");
+} = require("../../schemes");
 const { getDatabaseName } = require("../../constants");
 
 // Define the schema

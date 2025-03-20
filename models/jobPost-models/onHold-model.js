@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 const {
   pendingJobPostStep1Schema,
-} = require("../../scheme/pendingJobPostStep1-schema");
+} = require("../../schemes/pendingJobPostStep1-schema");
 const {
   pendingJobPostStep2Schema,
-} = require("../../scheme/pendingJobPostStep2-scheme");
+} = require("../../schemes/pendingJobPostStep2-scheme");
 const {
   pendingJobPostStep3Schema,
-} = require("../../scheme/pendingJobPostStep3-scheme");
+} = require("../../schemes/pendingJobPostStep3-scheme");
 const {
   pendingJobPostStep4Schema,
-} = require("../../scheme/pendingJobPostStep4-scheme");
+} = require("../../schemes/pendingJobPostStep4-scheme");
 const { validateReason } = require("../../utils");
 const { getDatabaseName } = require("../../constants");
 

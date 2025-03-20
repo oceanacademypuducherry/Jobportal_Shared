@@ -4,7 +4,7 @@ const {
   pendingJobPostStep2Schema,
   pendingJobPostStep3Schema,
   pendingJobPostStep4Schema,
-} = require("../../scheme");
+} = require("../../schemes");
 const { validateReason } = require("../../utils");
 const { getDatabaseName } = require("../../constants");
 const { ObjectId } = mongoose.Schema.Types;

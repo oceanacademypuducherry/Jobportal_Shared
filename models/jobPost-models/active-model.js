@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema.Types;
 const {
   pendingJobPostStep1Schema,
-} = require("../../scheme/pendingJobPostStep1-schema");
+} = require("../../schemes/pendingJobPostStep1-schema");
 const {
   pendingJobPostStep2Schema,
-} = require("../../scheme/pendingJobPostStep2-scheme");
+} = require("../../schemes/pendingJobPostStep2-scheme");
 const { getDatabaseName } = require("../../constants");
 
 // Define the schema

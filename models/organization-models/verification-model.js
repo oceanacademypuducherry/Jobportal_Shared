@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { addressSchema } = require("../../scheme");
+const { addressSchema } = require("../../schemes");
 const { getDatabaseName } = require("../../constants");
 
 const { ObjectId } = mongoose.Schema.Types;

@@ -1,15 +1,15 @@
-const config = require("./config");
+const configs = require("./configs");
 const constants = require("./constants");
 const helpers = require("./helpers");
 const models = require("./models");
-const scheme = require("./scheme");
+const schemes = require("./schemes");
 const utils = require("./utils");
 
 module.exports = {
-    config,
+    configs,
     constants,
     helpers,
     models,
-    scheme,
+    schemes,
     utils,
 };
