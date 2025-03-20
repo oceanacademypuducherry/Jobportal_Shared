@@ -1,5 +1,5 @@
 const { Readable } = require("stream");
-const { bucket } = require("../config/firebase-admin");
+const { bucket } = require("../configs/firebase-admin");
 const { validateFile, validateFilePath } = require("./validate-utils");
 
 // Function to upload a file to Firebase Storage with size limit check
