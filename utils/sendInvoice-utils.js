@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer-core");
 const chromium = require("chrome-aws-lambda");
 // const localPuppeteer = require("puppeteer");
 
-const { invoiceEmailTemplate } = require("../../utils/invoiceTemplate");
+const { invoiceEmailTemplate } = require("./invoiceTemplate");
 
 const { ToWords } = require("to-words");
 const { OUR_ORG_INFO } = require("../../constant");
