@@ -8,4 +8,5 @@ module.exports = {
   ...require("./token-utils"),
   ...require("./otp-utils"),
   ...require("./populate-utils"),
+  ...require("./sendInvoice-utils"),
 };
