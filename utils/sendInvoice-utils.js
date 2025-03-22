@@ -6,7 +6,7 @@ const chromium = require("chrome-aws-lambda");
 const { invoiceEmailTemplate } = require("./invoiceTemplate");
 
 const { ToWords } = require("to-words");
-const { OUR_ORG_INFO } = require("../../constant");
+const { OUR_ORG_INFO } = require("../constants");
 const toWords = new ToWords();
 
 // const generatePDF = async (htmlContent) => {
