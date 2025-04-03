@@ -5,4 +5,5 @@ module.exports = {
   CandidateRequestModel: require("./requestModel"),
   CandidateSavedJobModel: require("./savedJobModel"),
   SearchAppearanceModel: require("./searchAppearanceModel"),
+  CandidateToken: require("./tokenModel"),
 };

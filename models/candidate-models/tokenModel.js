@@ -17,4 +17,4 @@ schema.index({ candidateId: 1, sessionId: 1 });
 
 const CandidateToken = myDB.model(getDatabaseName, schema);
 
-module.exports = { CandidateToken };
+module.exports = CandidateToken;
