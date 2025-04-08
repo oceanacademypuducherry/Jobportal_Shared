@@ -15,6 +15,6 @@ const myDB = mongoose.connection.useDb("OA_Job_Portal_API");
 
 schema.index({ candidateId: 1, sessionId: 1 });
 
-const CandidateToken = myDB.model(getDatabaseName, schema);
+const CandidateToken = myDB.model(getDatabaseName(), schema);
 
 module.exports = CandidateToken;

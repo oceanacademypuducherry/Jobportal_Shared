@@ -1,4 +1,6 @@
 module.exports = {
+  BoardModel: require("./board-model"),
+  CollegeModel: require("./college-model"),
   EducationModel: require("./education-model"),
   CourseModel: require("./course-model"),
   JobApplicationModel: require("./jobApplication-model"),
