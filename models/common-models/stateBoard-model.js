@@ -17,6 +17,6 @@ const schema = new mongoose.Schema(
 const myDB = mongoose.connection.useDb(getDatabaseName());
 
 // Create the model
-const BoardModel = myDB.model("board", schema);
+const StateBoardModel = myDB.model("state-board", schema);
 
-module.exports = BoardModel;
+module.exports = StateBoardModel;

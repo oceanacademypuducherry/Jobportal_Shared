@@ -1,5 +1,5 @@
 module.exports = {
-  BoardModel: require("./board-model"),
+  StateBoardModel: require("./stateBoard-model"),
   CollegeModel: require("./college-model"),
   EducationModel: require("./education-model"),
   CourseModel: require("./course-model"),
