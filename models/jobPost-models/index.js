@@ -6,5 +6,6 @@ module.exports = {
   OnHoldJobPostModel: require("./onHold-model"),
   PendingJobPostModel: require("./pending-model"),
   RejectedJobPostModel: require("./rejected-model"),
+  JobReportModel: require("./reportJob-model"),
   VerificationJobPostModel: require("./verification-model"),
 };
