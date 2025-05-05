@@ -13,7 +13,6 @@ const {
 } = require("../../schemes/pendingJobPostStep4-scheme");
 const { validateReason } = require("../../utils");
 const { getDatabaseName } = require("../../constants");
-const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema.Types;
 
 // Define the schema
