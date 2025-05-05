@@ -37,9 +37,9 @@ const schema = new mongoose.Schema(
       type: pendingJobPostStep3Schema,
       required: [true, "Step 3 data is required"],
     },
-    step4: {
-      type: pendingJobPostStep4Schema,
-      required: [true, "Step 4 data is required"],
+    paymentHistoryId: {
+      type: ObjectId,
+      required: [true, "paymentHistoryId is required"],
     },
     reason: {
       type: String,
