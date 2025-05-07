@@ -19,6 +19,10 @@ const reportSchema = new mongoose.Schema({
     reportReason:{
         type: Array,
         default: []
+    },
+    organizationId:{
+        type: ObjectId, 
+        required: true 
     }
 })
 const myDB = mongoose.connection.useDb(getDatabaseName());
