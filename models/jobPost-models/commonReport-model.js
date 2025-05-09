@@ -18,7 +18,9 @@ const commonReportSchema = new mongoose.Schema({
     issue:{
         type: String
     }
-})
+},
+{ timestamps: { createdAt: true, updatedAt: true } }
+)
 const myDB = mongoose.connection.useDb(getDatabaseName());
 // Create the model
 const CommonReportModel = myDB.model("common-report", commonReportSchema);
