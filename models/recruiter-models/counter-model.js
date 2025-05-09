@@ -10,4 +10,4 @@ const counterSchema = new mongoose.Schema({
 const myDB = mongoose.connection.useDb(getDatabaseName());
 const CounterModel = myDB.model("counter", counterSchema);
 
-module.exports = { CounterModel };
+module.exports =  CounterModel;
