@@ -94,6 +94,10 @@ const paymentHistorySchema = new mongoose.Schema(
       type: Boolean,
       required: [true, "Job offer status is required"],
     },
+    isVerified: {
+      type: Boolean,
+      required: [true, "isVerified is required"]
+    },
     jobOfferDiscountPercentage: {
       type: Number,
       required: function () {
