@@ -1,43 +1,31 @@
 const nodemailer = require("nodemailer");
 const puppeteer = require("puppeteer-core");
 const chromium = require("chrome-aws-lambda");
-// const localPuppeteer = require("puppeteer");
-
+const localPuppeteer = require("puppeteer");
 const { invoiceEmailTemplate } = require("./invoiceTemplate");
-
 const { ToWords } = require("to-words");
 const { OUR_ORG_INFO } = require("../constants");
+const { invoiceSchema } = require("../../../src/validators");
+const { isProduction, isTest } = require("jp-shared/utils/env-utils");
 const toWords = new ToWords();
 
-// const generatePDF = async (htmlContent) => {
-//   // const browser = await puppeteer.launch();
-//   // const browser = await puppeteer.launch({
-//   //   // executablePath: puppeteer.executablePath(),
-//   //   headless: true, // Ensure the browser runs headlessly in the cloud
-//   //   // args: ["--no-sandbox", "--disable-setuid-sandbox"], // Required in some environments like Firebase
-//   // });
-//    const browser = await puppeteer.launch({
-//     executablePath: await chromium.executablePath,  // Use the correct Chromium executable for Firebase
-//     args: chromium.args,                          // Set required arguments for headless Chrome
-//     headless: chromium.headless,                  // Ensure Chrome runs in headless mode
-//   });
-//   const page = await browser.newPage();
-//   await page.setContent(htmlContent);
-//   const pdfBuffer = await page.pdf({ format: "A4" });
-//   await browser.close();
-//   return pdfBuffer;
-// };
 const generatePDF = async (htmlContent) => {
   try {
     // from below is for local development
     // const browser = await localPuppeteer.launch();
 
     // Launch browser with necessary configuration for Firebase or serverless environments
-    const browser = await puppeteer.launch({
+    // const browser = await puppeteer.launch({
+    //   executablePath: await chromium.executablePath, // Path to Chromium for Firebase/Serverless
+    //   args: chromium.args, // Required arguments for running headless
+    //   headless: chromium.headless, // Ensure headless mode is enabled
+    // });
+
+    const browser = isProduction() || isTest() ? await puppeteer.launch({
       executablePath: await chromium.executablePath, // Path to Chromium for Firebase/Serverless
       args: chromium.args, // Required arguments for running headless
       headless: chromium.headless, // Ensure headless mode is enabled
-    });
+    }) : await localPuppeteer.launch();
 
     // Create a new page in the browser
     const page = await browser.newPage();
@@ -61,15 +49,23 @@ const generatePDF = async (htmlContent) => {
     throw error; // Re-throw the error for further handling
   }
 };
-const sendInvoice = async (recruiterWithPlan, paymentHistory) => {
-  if (!recruiterWithPlan || !paymentHistory) {
-    throw new Error("No data provided to send the invoice.");
-  }
+const sendInvoice = async (invoiceInput) => {
 
-  const { recruiterEmail, gstAmount, totalAmount, amount, gstPercentage } =
-    recruiterWithPlan;
+  // Validate input
+  const { error, value } = invoiceSchema.validate(invoiceInput);
+  if (error) throw new Error(`Invalid invoice input: ${error.message}`);
 
-  const { billNumber, jobId, planName } = paymentHistory;
+  // Destructure the validated value
+  const {
+    recruiterEmail,
+    gstAmount,
+    totalAmount,
+    amount,
+    gstPercentage,
+    billNumber,
+    jobId,
+    planName,
+  } = value;
 
   // Check if the required environment variables are set
   if (!process.env.EMAIL || !process.env.EMAIL_PASSWORD) {
