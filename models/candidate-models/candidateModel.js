@@ -37,7 +37,7 @@ const educationSchema = new mongoose.Schema({
     default: null,
   },
   // course: { type: String, required: true },
-  institute: { type: String, required: true },
+  institute: { type: ObjectId, required: true },
   courseType: { type: String, required: true },
   courseStartYear: {
     type: Number,
