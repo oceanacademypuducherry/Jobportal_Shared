@@ -110,4 +110,4 @@ schema.index({ recruiterId: 1 });
 const myDB = mongoose.connection.useDb(getDatabaseName());
 const RecruiterBasicDetailModel = myDB.model("recruiter-basic-detail", schema);
 
-module.exports = { RecruiterBasicDetailModel };
+module.exports =  RecruiterBasicDetailModel ;
