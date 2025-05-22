@@ -171,7 +171,7 @@ const uploadFile = async (file, filePath) => {
 
     return new Promise((resolve, reject) => {
       stream.on("error", (err) => {
-        logger.error("Error uploading file to Firebase Storage:", { err });
+        console.error("Error uploading file to Firebase Storage:", { err });
         reject(err);
       });
 
@@ -183,7 +183,7 @@ const uploadFile = async (file, filePath) => {
           });
           resolve(url);
         } catch (error) {
-          logger.error("Error generating signed URL:", { error });
+          console.error("Error generating signed URL:", { error });
           reject(error);
         }
       });
