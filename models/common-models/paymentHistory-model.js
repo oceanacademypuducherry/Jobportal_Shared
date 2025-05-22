@@ -106,6 +106,10 @@ const paymentHistorySchema = new mongoose.Schema(
       type: String,
       default: null,
     },
+    jobId: {
+      type: String,
+      required: [true, "Job ID is required"],
+    },
     jobOfferDiscountPercentage: {
       type: Number,
       required: function () {

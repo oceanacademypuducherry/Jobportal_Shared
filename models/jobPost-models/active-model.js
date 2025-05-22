@@ -42,10 +42,10 @@ const schema = new mongoose.Schema(
     //     message: "Invalid Plan ID format",
     //   },
     // },
-    jobId: {
-      type: String,
-      required: [true, "Job ID is required"],
-    },
+    // jobId: {
+    //   type: String,
+    //   required: [true, "Job ID is required"],
+    // },
     paymentHistoryId: {
       type: ObjectId,
       required: [true, "Payment History ID is required"],
