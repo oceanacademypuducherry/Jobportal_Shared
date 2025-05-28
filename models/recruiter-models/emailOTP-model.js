@@ -65,4 +65,4 @@ schema.index({ deleteAt: 1 }, { expireAfterSeconds: 0 });
 // Consider adding indexes for frequently queried fields
 schema.index({ recruiterId: 1 });
 
-module.exports = { RecruiterEmailOTPModel };
+module.exports =  RecruiterEmailOTPModel ;
