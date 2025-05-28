@@ -7,4 +7,5 @@ module.exports = {
   RequestRecruiterModel: require("./request-model"),
   VerificationRecruiterModel: require("./verification-model"),
   RecruiterMobileOTPModel: require("./mobileOTP-model"),
+  RecruiterEmailOTPModel: require("./emailOTP-model")
 };
