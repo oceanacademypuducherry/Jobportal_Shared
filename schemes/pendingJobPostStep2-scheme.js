@@ -64,52 +64,99 @@ const pendingJobPostStep2Schema = new mongoose.Schema(
       minlength: [3, "Experience level must be at least 3 characters"],
       maxlength: [11, "Experience level must be at most 11 characters"],
     },
-    experience: {
-      type: {
-        min: {
-          type: Number,
-          required: function () {
-            return this.experienceLevel === "Experienced";
-          },
-          min: [0, "Minimum experience must be a non-negative number"],
-          validate: {
-            validator: Number.isInteger,
-            message: "Minimum experience must be an integer",
-          },
-        },
-        max: {
-          type: Number,
-          required: function () {
-            return this.experienceLevel === "Experienced";
-          },
-          min: [0, "Maximum experience must be a non-negative number"],
-          validate: {
-            validator: Number.isInteger,
-            message: "Maximum experience must be an integer",
-          },
-        },
+    // experience: {
+    //   type: {
+    //     min: {
+    //       type: Number,
+    //       required: function () {
+    //         return this.experienceLevel === "Experienced";
+    //       },
+    //       min: [0, "Minimum experience must be a non-negative number"],
+    //       validate: {
+    //         validator: Number.isInteger,
+    //         message: "Minimum experience must be an integer",
+    //       },
+    //     },
+    //     max: {
+    //       type: Number,
+    //       required: function () {
+    //         return this.experienceLevel === "Experienced";
+    //       },
+    //       min: [0, "Maximum experience must be a non-negative number"],
+    //       validate: {
+    //         validator: Number.isInteger,
+    //         message: "Maximum experience must be an integer",
+    //       },
+    //     },
+    //   },
+    //   validate: {
+    //     validator: function (v) {
+    //       if (
+    //         this.experienceLevel === "Fresher" ||
+    //         this.experienceLevel === "Any"
+    //       ) {
+    //         return !v || (v.min === undefined && v.max === undefined);
+    //       }
+    //       return v.min <= v.max;
+    //     },
+    //     message: function (props) {
+    //       if (
+    //         this.experienceLevel === "Fresher" ||
+    //         this.experienceLevel === "Any"
+    //       ) {
+    //         return "Experience field should not be provided for 'Fresher' or 'Any' experience levels";
+    //       }
+    //       return "Minimum experience must be less than or equal to maximum experience";
+    //     },
+    //   },
+    // },
+        experience: {
+  type: {
+    min: {
+      type: Number,
+      required: function () {
+        return this.experienceLevel === "Experienced";
       },
+      min: [0, "Minimum experience must be a non-negative number"],
       validate: {
-        validator: function (v) {
-          if (
-            this.experienceLevel === "Fresher" ||
-            this.experienceLevel === "Any"
-          ) {
-            return !v || (v.min === undefined && v.max === undefined);
-          }
-          return v.min <= v.max;
-        },
-        message: function (props) {
-          if (
-            this.experienceLevel === "Fresher" ||
-            this.experienceLevel === "Any"
-          ) {
-            return "Experience field should not be provided for 'Fresher' or 'Any' experience levels";
-          }
-          return "Minimum experience must be less than or equal to maximum experience";
-        },
+        validator: Number.isInteger,
+        message: "Minimum experience must be an integer",
       },
     },
+    max: {
+      type: Number,
+      required: function () {
+        return this.experienceLevel === "Experienced";
+      },
+      min: [0, "Maximum experience must be a non-negative number"],
+      validate: {
+        validator: Number.isInteger,
+        message: "Maximum experience must be an integer",
+      },
+    },
+  },
+  validate: {
+    validator: function (v) {
+      if (this.experienceLevel === "Fresher") {
+        return !v || (v.min === undefined && v.max === undefined);
+      }
+      if (this.experienceLevel === "Experienced") {
+        return v && v.min <= v.max;
+      }
+      // When experienceLevel is "Any", allow any value or no value
+      return true;
+    },
+    message: function (props) {
+      if (this.experienceLevel === "Fresher") {
+        return "Experience field should not be provided for 'Fresher' experience level";
+      }
+      if (this.experienceLevel === "Experienced") {
+        return "Minimum experience must be less than or equal to maximum experience";
+      }
+      return "Invalid experience configuration";
+    },
+  },
+},
   },
   { timestamps: { createdAt: true, updatedAt: true } }
 );
