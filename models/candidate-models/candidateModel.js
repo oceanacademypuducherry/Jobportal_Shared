@@ -20,7 +20,6 @@ const PROJECT_STATUS = ["completed", "notCompleted", null];
 const educationSchema = new mongoose.Schema({
   _id: { type: ObjectId, auto: true },
   qualificationId: { type: ObjectId, required: true },
-  // qualification: { type: String, required: true },
   specializationId: {
     type: ObjectId,
     required: function () {
@@ -28,7 +27,6 @@ const educationSchema = new mongoose.Schema({
     },
     default: null,
   },
-  // specialization: { type: String, required: true },
   courseId: {
     type: ObjectId,
     required: function () {
@@ -36,8 +34,7 @@ const educationSchema = new mongoose.Schema({
     },
     default: null,
   },
-  // course: { type: String, required: true },
-  institute: { type: ObjectId, required: true },
+  instituteId: { type: ObjectId, default: null, },
   courseType: { type: String, required: true },
   courseStartYear: {
     type: Number,
