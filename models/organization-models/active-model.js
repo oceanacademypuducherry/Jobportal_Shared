@@ -44,16 +44,12 @@ const schema = new mongoose.Schema(
       type: String,
       required: [true, "About section is required"],
       trim: true,
-      minlength: [10, "About section must be at least 10 characters long"],
-      maxlength: [1000, "About section cannot exceed 1000 characters"],
+      // minlength: [10, "About section must be at least 10 characters long"],
+      // maxlength: [1000, "About section cannot exceed 1000 characters"],
     },
     websiteLink: {
       type: String,
       required: [true, "Website link is required"],
-      // match: [
-      //   /^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+)(\.[a-z]{2,})+(\/[^\s]*)?$/,
-      //   "Website link must be a valid URL",
-      // ],
       trim: true,
     },
     gallery: {
