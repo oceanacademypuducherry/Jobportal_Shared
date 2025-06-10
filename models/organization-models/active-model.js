@@ -24,20 +24,20 @@ const schema = new mongoose.Schema(
       type: String,
       required: [true, "Organization name is required"],
       trim: true,
-      minlength: [2, "Organization name must be at least 2 characters long"],
-      maxlength: [100, "Organization name cannot exceed 100 characters"],
+      // minlength: [2, "Organization name must be at least 2 characters long"],
+      // maxlength: [100, "Organization name cannot exceed 100 characters"],
     },
     normalizedOrganizationName: {
       type: String,
       trim: true,
-      minlength: [
-        2,
-        "Normalized organization name must be at least 2 characters long",
-      ],
-      maxlength: [
-        100,
-        "Normalized organization name cannot exceed 100 characters",
-      ],
+      // minlength: [
+      //   2,
+      //   "Normalized organization name must be at least 2 characters long",
+      // ],
+      // maxlength: [
+      //   100,
+      //   "Normalized organization name cannot exceed 100 characters",
+      // ],
       lowercase: true, // Ensuring normalization for consistent database querying
     },
     about: {
