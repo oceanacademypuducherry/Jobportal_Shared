@@ -125,6 +125,18 @@ const paymentHistorySchema = new mongoose.Schema(
         message: "Discount percentage is required when isJobOffer is true",
       },
     },
+    gstPercentage: {
+      type: Number,
+      required: [true, "GST percentage is required"],
+      min: [0, "GST percentage must be a positive number"],
+      max: [100, "GST percentage cannot exceed 100%"],
+      validate: isIntegerValidator,
+    },
+    totalAmount: {
+      type: Number,
+      required: true,
+      min: 0, // Ensure total amount is non-negative
+    },
   },
   {
     timestamps: true, // Automatically manage createdAt and updatedAt
