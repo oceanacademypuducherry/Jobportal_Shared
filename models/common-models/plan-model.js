@@ -136,6 +136,14 @@ const planSchema = new mongoose.Schema({
     maxlength: [100, "Submit label cannot exceed 100 characters"],
     trim: true,
   },
+  gstPercentage: {
+    type: Number,
+    required: [true, "GST percentage is required"],
+    min: [0, "GST percentage must be a positive number"],
+    max: [100, "GST percentage cannot exceed 100%"],
+    validate: isIntegerValidator,
+  }
+
 });
 
 const myDB = mongoose.connection.useDb(getDatabaseName());
