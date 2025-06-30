@@ -31,21 +31,10 @@ const schema = new mongoose.Schema(
         message: "Invalid Recruiter ID format",
       },
     },
-    // planId: {
-    //   type: ObjectId,
-    //   required: [true, "Plan ID is required"],
-    //   ref: "plan",
-    //   validate: {
-    //     validator: function (v) {
-    //       return mongoose.Types.ObjectId.isValid(v);
-    //     },
-    //     message: "Invalid Plan ID format",
-    //   },
-    // },
-    // jobId: {
-    //   type: String,
-    //   required: [true, "Job ID is required"],
-    // },
+    isFroozen: {
+      type: Boolean,
+      default: false
+    },
     paymentHistoryId: {
       type: ObjectId,
       required: [true, "Payment History ID is required"],

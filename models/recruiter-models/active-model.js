@@ -30,6 +30,10 @@ const schema = new mongoose.Schema(
       type: ObjectId,
       required: true,
     },
+    isFroozen: {
+      type: Boolean,
+      default: false
+    },
   },
   { timestamps: { createdAt: true, updatedAt: true } }
 );
