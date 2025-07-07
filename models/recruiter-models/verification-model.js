@@ -51,6 +51,10 @@ const schema = new Schema(
       minlength: [2, "Designation must be at least 2 characters long"],
       maxlength: [50, "Designation cannot exceed 50 characters"],
     },
+      isFroozen: {
+      type: Boolean,
+      default: false
+    },
   },
   { timestamps: { createdAt: true, updatedAt: true } }
 );
