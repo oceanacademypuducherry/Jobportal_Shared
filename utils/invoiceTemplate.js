@@ -77,7 +77,7 @@ module.exports.invoiceEmailTemplate = ({
               item.description
             }</td>
             <td style="border: 1px solid #000; padding: 10px; text-align: center;">${
-              item.amount
+              Number(item.amount).toFixed(2)
             }</td>
           </tr>`
         )

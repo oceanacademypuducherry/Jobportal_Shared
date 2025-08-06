@@ -6,47 +6,42 @@ const { invoiceEmailTemplate } = require("./invoiceTemplate");
 const { ToWords } = require("to-words");
 const { OUR_ORG_INFO } = require("../constants");
 const { invoiceSchema } = require("../../../src/validators");
-const { isProduction, isTest } = require("jp-shared/utils/env-utils");
+const { isProduction, isTest } = require("./env-utils");
+// const { isProduction, isTest } = require("jp-shared/utils");
 const toWords = new ToWords();
 
 const generatePDF = async (htmlContent) => {
-  try {
-    // from below is for local development
-    // const browser = await localPuppeteer.launch();
+ try {
+    let browser;
 
-    //Launch browser with necessary configuration for Firebase or serverless environments
-    const browser = await puppeteer.launch({
-      executablePath: await chromium.executablePath, // Path to Chromium for Firebase/Serverless
-      args: chromium.args, // Required arguments for running headless
-      headless: chromium.headless, // Ensure headless mode is enabled
-    });
+    if (isProduction() || isTest()) {
+      // In serverless/production environments
+      browser = await puppeteer.launch({
+        executablePath: await chromium.executablePath,
+        args: chromium.args,
+        headless: chromium.headless,
+      });
+    } else {
+      // In local development
+      const localPuppeteer = require("puppeteer"); // Use full puppeteer
+      browser = await localPuppeteer.launch({
+        headless: true,
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      });
+    }
 
-    // const browser = isProduction() || isTest() ? await puppeteer.launch({
-    //   executablePath: await chromium.executablePath, // Path to Chromium for Firebase/Serverless
-    //   args: chromium.args, // Required arguments for running headless
-    //   headless: chromium.headless, // Ensure headless mode is enabled
-    // }) : await localPuppeteer.launch();
-
-    // Create a new page in the browser
     const page = await browser.newPage();
-
-    // Set the HTML content dynamically passed to this function
     await page.setContent(htmlContent);
-
-    // Generate the PDF from the page's content
     const pdfBuffer = await page.pdf({
-      format: "A4", // Set paper format to A4 (you can customize this if needed)
-      printBackground: true, // Include background images or colors in the PDF
+      format: "A4",
+      printBackground: true,
     });
 
-    // Close the browser once done
     await browser.close();
-
-    // Return the PDF as a buffer
     return pdfBuffer;
   } catch (error) {
     console.error("Error generating PDF:", error);
-    throw error; // Re-throw the error for further handling
+    throw error;
   }
 };
 const sendInvoice = async (invoiceInput) => {
